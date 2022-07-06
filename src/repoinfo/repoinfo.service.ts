@@ -19,7 +19,7 @@ export class RepoinfoService {
         `https://raw.githubusercontent.com/EvanLi/Github-Ranking/master/Data/github-ranking-${date}.csv`,
       ),
     );
-    return csvtojson().fromString(data.data);
+    return csvtojson().fromString(data.data.toLowerCase());
   }
 
   /**
