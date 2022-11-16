@@ -20,4 +20,4 @@ jobs:
         url: 'http://mohgserver.xyz:3000/v1/codeReview'
         method: 'POST'
         customHeaders: '{"Content-Type": "application/json"}'
-        data: '{"repoName": "${{ github.repository }}", "repoOwner": ""${{ github.repository_owner }}""}'
+        data: '{"repoName": "${{ github.repository }}", "repoOwner": "${{ github.repository_owner }}"}'
