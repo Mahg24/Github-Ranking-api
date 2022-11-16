@@ -1,0 +1,23 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+env:
+  ## Sets environment variable
+  GITHUB_TOKEN: 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
+  REPO_NAME: Github-Ranking-api
+  REPO_OWNER: Mahg24
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: '44.209.39.95:3000/v1/codeReview'
+        method: 'POST'
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: '{"repoName": "${{ github.repository }}", "repoOwner": ""${{ github.repository_owner }}""}'
