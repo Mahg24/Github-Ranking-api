@@ -17,7 +17,7 @@ jobs:
     - name: Deploy Stage
       uses: fjogeleit/http-request-action@v1
       with:
-        url: '44.209.39.95:3000/v1/codeReview'
+        url: 'http://mohgserver.xyz:3000/v1/codeReview'
         method: 'POST'
         customHeaders: '{"Content-Type": "application/json"}'
         data: '{"repoName": "${{ github.repository }}", "repoOwner": ""${{ github.repository_owner }}""}'
