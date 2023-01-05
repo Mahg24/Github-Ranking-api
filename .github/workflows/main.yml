@@ -13,4 +13,4 @@ jobs:
           url: 'https://kpi.soluntech.com/v1/codeReview'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"repoName": "${{github.repository}}", "repoOwner": "${{github.repository_owner}}"}'
+          data: '{"repoName": "${{github.repository}}", "repoOwner": "${{github.repository_owner}}", "pull_number":$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")}'
