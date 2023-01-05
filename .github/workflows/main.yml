@@ -13,4 +13,4 @@ jobs:
           url: 'https://c5770934-778c-4432-b5c9-31aa5da57394.mock.pstmn.io/v1/codeReview'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"repoName": "${{github.repository}}", "repoOwner": "${{github.repository_owner}}", "pull_number":$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")}'
+          data: '{"repoName": "${{github.repository}}", "repoOwner": "${{github.repository_owner}}", "pull_number":"${{github.ref}}"}'
