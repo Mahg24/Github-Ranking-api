@@ -1,23 +1,16 @@
-name: Node.js CI
+name: CodeReview
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-env:
-  ## Sets environment variable
-  GITHUB_TOKEN: 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
-  REPO_NAME: Github-Ranking-api
-  REPO_OWNER: Mahg24
+  pull_request_review:
+    types: [ submitted ]
 jobs:
-  deployment:
+  sendReview:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy Stage
-      uses: fjogeleit/http-request-action@v1
-      with:
-        url: 'http://mohgserver.xyz:3000/v1/codeReview'
-        method: 'POST'
-        customHeaders: '{"Content-Type": "application/json"}'
-        data: '{"repoName": "${{ github.repository }}", "repoOwner": "${{ github.repository_owner }}"}'
+      - name: Deploy Stage
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://kpi.soluntech.com/v1/codeReview'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"repoName": "${{github.repository}}", "repoOwner": "${{github.repository_owner}}"}'
